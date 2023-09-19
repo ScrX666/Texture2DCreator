@@ -1,7 +1,7 @@
 # Texture2DCreator
-这个工具旨在将Texture2D的资产生成Texture2DArray格式以及生成一张TextureAtlas的图集来优化游戏贴图大小。
-该工具是从[https://gist.github.com/Cyanilux/e672f328c4cafb361b490a5943c1c211#file-tex2darraycreator-cs-L140](https://gist.github.com/Cyanilux/e672f328c4cafb361b490a5943c1c211#file-tex2darraycreator-cs-L140)，在此基础上添加了生成Atlas功能，修改了部分功能，并优化了部分编辑器格式。
-矩形填充排序算法使用MaxRectsBinPack库。[https://github.com/juj/RectangleBinPack/blob/master/MaxRectsBinPack.h#L1](https://github.com/juj/RectangleBinPack/blob/master/MaxRectsBinPack.h#L1)
+这个工具旨在将Texture2D的资产生成Texture2DArray格式以及生成一张TextureAtlas的图集来优化游戏贴图大小。  
+该工具是从[https://gist.github.com/Cyanilux/e672f328c4cafb361b490a5943c1c211#file-tex2darraycreator-cs-L140](https://gist.github.com/Cyanilux/e672f328c4cafb361b490a5943c1c211#file-tex2darraycreator-cs-L140)，在此基础上添加了生成Atlas功能，修改了部分功能，并优化了部分编辑器格式。  
+矩形填充排序算法使用MaxRectsBinPack库。[https://github.com/juj/RectangleBinPack/blob/master/MaxRectsBinPack.h#L1](https://github.com/juj/RectangleBinPack/blob/master/MaxRectsBinPack.h#L1)  
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/38597961/1695091802655-ad7f6678-cd61-49ba-b01b-090373372e3b.png#averageHue=%233d3d3d&clientId=uf23794f5-d3d1-4&from=paste&height=821&id=ua30eb97b&originHeight=821&originWidth=533&originalType=binary&ratio=1&rotation=0&showTitle=false&size=73654&status=done&style=none&taskId=u9932fec2-5e6d-4f26-bf3a-010ed6a371c&title=&width=533)
 ## LoadTexture2DArray
 可以将Texture2DArray资产反加载为一张张的贴图，并且可以直接替换或删除其中的某一张贴图，也可以在此基础上继续增加贴图。
