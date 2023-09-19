@@ -245,10 +245,13 @@ public class Tex2DCreator : EditorWindow {
             Texture2D tex = textures[i];
             SetTextureReadable(tex);
             Rect rect = bp.Insert(tex.width, tex.height, method);
+            
+            
             if(rect.width == 0 || rect.height == 0) {
                 return PackTextures(texture, textures, width * (width <= height ? 2 : 1), height * (height < width ? 2 : 1));
             }
             rects[i] = rect;
+           
         }
         texture.Reinitialize(width, height);
         texture.SetPixels(new Color[width * height]);
@@ -276,7 +279,9 @@ public class Tex2DCreator : EditorWindow {
             rect.width /= width;
             rect.height /= height;
             rects[i] = rect;
+            SetTextureUnReadable(tex);
         }
+        
         texture.Apply();
         return rects;
     }
@@ -318,6 +323,16 @@ public class Tex2DCreator : EditorWindow {
         EditorUtility.SetDirty(importer);
         importer.SaveAndReimport();
     }
+    
+    private void SetTextureUnReadable(Texture2D tex)
+    {
+        string path = AssetDatabase.GetAssetPath(tex);
+        TextureImporter importer = (TextureImporter)TextureImporter.GetAtPath(path);
+        importer.isReadable = false;
+        EditorUtility.SetDirty(importer);
+        importer.SaveAndReimport();
+    }
+    
     private void CleanupTempTextures() {
         for (int i = tempLoadedTextures.Count - 1; i >= 0; i--) {
             DestroyImmediate(tempLoadedTextures[i]);
